@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { environments } from './environments';
 import { DatabaseModule } from './database/database.module';
+import { UsersModule } from './users/users.module';
 import config from './config';
 
 @Module({
@@ -15,14 +16,11 @@ import config from './config';
       load: [config],
       isGlobal: true,
       validationSchema: Joi.object({
-        POSTGRES_USER: Joi.string().required(),
-        POSTGRES_HOST: Joi.string().required(),
-        POSTGRES_DB: Joi.string().required(),
-        POSTGRES_PASSWORD: Joi.string().required(),
-        POSTGRES_PORT: Joi.number().required(),
+        DATABASE_URL: Joi.string().required(),
       }),
     }),
     DatabaseModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
