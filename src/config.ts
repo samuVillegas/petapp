@@ -5,5 +5,6 @@ export default registerAs('config', () => {
     postgres: {
       url: process.env.DATABASE_URL,
     },
+    jwtSecret: process.env.JWT_SECRET,
   };
 });

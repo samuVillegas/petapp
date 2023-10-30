@@ -19,7 +19,7 @@ export class User {
 
   @ApiHideProperty()
   @Exclude()
-  @Column({ type: 'varchar', length: 50 })
+  @Column({ type: 'varchar', length: 100 })
   password: string;
 
   @Column({ type: 'varchar', length: 50 })
